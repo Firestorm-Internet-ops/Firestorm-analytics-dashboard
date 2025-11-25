@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Supabase Query</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .result { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Supabase Query Test</h1>
+    
+    <button onclick="testQuery1000()">Test with default (1000 limit)</button>
+    <button onclick="testQuery50000()">Test with 50000 limit</button>
+    <button onclick="testQueryNoLimit()">Test with no limit</button>
+    
+    <div id="results"></div>
+
+    <script>
+        const supabase = window.supabase.createClient(
+            'https://zbueoutrzlmwqakupedp.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpidWVvdXRyemxtd3Fha3VwZWRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA2ODYsImV4cCI6MjA3OTExNjY4Nn0.44aKq7FEe-XiVU0hRYgWCwHvEeokdOHLrxuEFCkMP_g'
+        );
+
+        function showResult(title, data, error) {
+            const results = document.getElementById('results');
+            const dates = data ? [...new Set(data.map(d => d.date))].sort() : [];
+            
+            results.innerHTML = `
+                <div class="result">
+                    <h3>${title}</h3>
+                    <p><strong>Total rows:</strong> ${data ? data.length : 0}</p>
+                    <p><strong>Unique dates:</strong> ${dates.length}</p>
+                    <p><strong>Date range:</strong> ${dates[0]} to ${dates[dates.length - 1]}</p>
+                    <p><strong>Error:</strong> ${error || 'None'}</p>
+                    <details>
+                        <summary>All dates (${dates.length})</summary>
+                        <pre>${dates.join('\n')}</pre>
+                    </details>
+                </div>
+            ` + results.innerHTML;
+        }
+
+        async function testQuery1000() {
+            console.log('Testing with default limit...');
+            const { data, error } = await supabase
+                .from('master_sheet')
+                .select('date')
+                .order('date');
+            
+            console.log('Result:', data?.length, 'rows');
+            showResult('Query with DEFAULT limit', data, error?.message);
+        }
+
+        async function testQuery50000() {
+            console.log('Testing with 50000 limit...');
+            const { data, error } = await supabase
+                .from('master_sheet')
+                .select('date')
+                .order('date')
+                .limit(50000);
+            
+            console.log('Result:', data?.length, 'rows');
+            showResult('Query with .limit(50000)', data, error?.message);
+        }
+
+        async function testQueryNoLimit() {
+            console.log('Testing with range header...');
+            const { data, error } = await supabase
+                .from('master_sheet')
+                .select('date')
+                .order('date')
+                .range(0, 50000);
+            
+            console.log('Result:', data?.length, 'rows');
+            showResult('Query with .range(0, 50000)', data, error?.message);
+        }
+    </script>
+</body>
+</html>
