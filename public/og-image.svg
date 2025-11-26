@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#gradient)"/>
+  
+  <!-- Logo -->
+  <g transform="translate(100, 200)">
+    <!-- Top left parallelogram (large) -->
+    <path d="M 0 0 L 80 0 L 60 80 L -20 80 Z" fill="#FF3333" opacity="0.95"/>
+    <!-- Top right parallelogram (medium) -->
+    <path d="M 100 20 L 160 20 L 140 80 L 80 80 Z" fill="#FF4444" opacity="0.9"/>
+    <!-- Bottom left parallelogram (small) -->
+    <path d="M -20 100 L 40 100 L 20 160 L -40 160 Z" fill="#FF5555" opacity="0.85"/>
+    <!-- Bottom right parallelogram (large) -->
+    <path d="M 60 100 L 180 100 L 160 220 L 40 220 Z" fill="#FF6666" opacity="0.9"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="350" y="280" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">
+    Firestorm Analytics
+  </text>
+  <text x="350" y="350" font-family="Arial, sans-serif" font-size="32" fill="#E0E0E0">
+    Transform Data into Actionable Insights
+  </text>
+  <text x="350" y="420" font-family="Arial, sans-serif" font-size="24" fill="#B0B0B0">
+    Track KPIs • Analyze Performance • Visualize Trends
+  </text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

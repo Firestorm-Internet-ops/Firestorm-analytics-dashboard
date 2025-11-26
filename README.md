@@ -1,73 +1,108 @@
-# Welcome to your Lovable project
+# Firestorm Analytics Dashboard
 
-## Project info
+A powerful marketing campaign performance dashboard for tracking visitor metrics, bookings, and revenue across multiple partners.
 
-**URL**: https://lovable.dev/projects/f194f5b0-5648-4d0a-a7e7-f104a01f2162
+## Features
 
-## How can I edit this code?
+- **Real-time Analytics** - Track KPIs, visualize trends, and monitor performance metrics
+- **Multi-Partner Support** - Aggregate data from GetYourGuide, Tiqets, and Viator
+- **Secure Authentication** - Login system with Supabase authentication
+- **Campaign Intelligence** - Automatic city mapping and campaign normalization
+- **Interactive Visualizations** - Charts, graphs, and breakdowns by city and campaign
+- **ETL Pipeline** - Automated data processing from Excel files
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React, TypeScript, Vite
+- **UI Components**: shadcn-ui, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL)
+- **Data Processing**: Python, Pandas
+- **Authentication**: Supabase Auth
+- **Charts**: Recharts
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f194f5b0-5648-4d0a-a7e7-f104a01f2162) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ and npm
+- Python 3.8+
+- Supabase account
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Firestorm-Internet-ops/Firestorm-analytics-dashboard.git
+   cd Firestorm-analytics-dashboard
+   ```
 
-Follow these steps:
+2. **Install dependencies**
+   ```bash
+   npm install
+   pip install -r etl/requirements.txt
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your Supabase credentials
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+5. **Access the dashboard**
+   Open http://localhost:8080 in your browser
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## ETL Pipeline
+
+Process daily Excel files containing campaign data:
+
+```bash
+python etl/process_data.py
 ```
 
-**Edit a file directly in GitHub**
+See [etl/README.md](etl/README.md) for detailed ETL documentation.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Security
 
-**Use GitHub Codespaces**
+All credentials are stored in environment variables. See [SECURITY.md](SECURITY.md) for security guidelines.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Documentation
 
-## What technologies are used for this project?
+- [Authentication Setup](AUTH_SETUP.md)
+- [City Mapping](etl/CITY_MAPPING.md)
+- [Security Guidelines](SECURITY.md)
+- [Git Commands](GIT_COMMANDS.md)
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+├── src/                    # Frontend React application
+│   ├── components/         # UI components
+│   ├── pages/             # Page components
+│   └── lib/               # Utilities and stores
+├── etl/                   # ETL pipeline
+│   ├── processors/        # Data processors for each partner
+│   └── raw_data/          # Input Excel files
+├── public/                # Static assets
+└── supabase/             # Database migrations
+```
 
-## How can I deploy this project?
+## Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/f194f5b0-5648-4d0a-a7e7-f104a01f2162) and click on Share -> Publish.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
+Proprietary - All rights reserved by Firestorm Analytics
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Support
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+For support, email support@firestorm-analytics.com
