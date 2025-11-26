@@ -1,1 +1,3 @@
-project_id = "zbueoutrzlmwqakupedp"
+# Supabase Project Configuration
+# Replace with your actual project ID from Supabase dashboard
+project_id = "your-project-id-here"

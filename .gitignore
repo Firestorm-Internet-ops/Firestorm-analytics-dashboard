@@ -28,6 +28,9 @@ dist-ssr
 .env.local
 .env.production
 
+# Supabase config (contains project ID)
+supabase/config.toml
+
 # ETL data
 etl/raw_data/
 etl/processed/

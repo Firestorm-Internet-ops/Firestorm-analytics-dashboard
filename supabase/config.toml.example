@@ -1,0 +1,5 @@
+# Supabase Project Configuration
+# Copy this file to config.toml and update with your project ID
+
+# Get your project ID from: https://supabase.com/dashboard/project/YOUR_PROJECT/settings/general
+project_id = "your-project-id-here"
