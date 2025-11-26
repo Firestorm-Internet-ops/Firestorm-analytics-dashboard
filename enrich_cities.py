@@ -8,6 +8,7 @@ sys.path.insert(0, 'etl/processors')
 from city_mapper import extract_city_from_campaign
 from supabase import create_client
 from dotenv import load_dotenv
+from config import SUPABASE_URL, SUPABASE_KEY
 
 load_dotenv()
 

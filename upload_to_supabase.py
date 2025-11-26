@@ -4,10 +4,9 @@ Upload processed CSV to Supabase in batches
 import pandas as pd
 import requests
 import json
+from config import SUPABASE_URL, SUPABASE_KEY
 
 # Supabase credentials
-SUPABASE_URL = "https://zbueoutrzlmwqakupedp.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpidWVvdXRyemxtd3Fha3VwZWRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM1NDA2ODYsImV4cCI6MjA3OTExNjY4Nn0.44aKq7FEe-XiVU0hRYgWCwHvEeokdOHLrxuEFCkMP_g"
 
 # Read CSV
 print("Reading CSV file...")
